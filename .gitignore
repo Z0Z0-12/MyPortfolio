@@ -1,1 +1,13 @@
-photos
+# macOS
+.DS_Store
+**/.DS_Store
+
+# Editor / IDE
+.vscode/
+.idea/
+
+# Dependencies (if a build step is ever added)
+node_modules/
+
+# Logs
+*.log

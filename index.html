@@ -1,193 +1,227 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>My Portfolio</title>
-    <script src="https://kit.fontawesome.com/1dce780e12.js" crossorigin="anonymous"></script>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Himanshu Lama — AI Portfolio</title>
+<meta name="description" content="HIMANSHU.AI — the interactive portfolio of Himanshu Lama, a Computer Science & Data Science student building AI-powered software: RAG pipelines, multi-agent systems and full-stack apps." />
+<meta name="author" content="Himanshu Lama" />
+<meta name="theme-color" content="#0e0f12" />
+<!-- Open Graph / social cards -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Himanshu Lama — AI Portfolio" />
+<meta property="og:description" content="Interactive portfolio framed as an AI operating system. Machine Learning • AI Systems • Full-Stack Development." />
+<meta property="og:image" content="assets/himanshu.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<!-- Inline SVG favicon (red ● on charcoal) -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230e0f12'/%3E%3Ccircle cx='16' cy='16' r='7' fill='%23e1352b'/%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Caveat:wght@500;600;700&family=Space+Mono:wght@400;700&family=Tiro+Devanagari+Hindi&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-    <div id="header">
-        <div class="container">
-            <nav>
-                <img src="./photos/logo4.png" alt="name logo" class="logo">
-                <ul id="sidemenu">
-                    <li><a href="#header">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#portfolio">Portfolio</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                    <i class="fas fa-xmark" onclick="closemenu()"></i>
-                </ul>
-                <i class="fas fa-bars" onclick="openmenu()"></i>
-            </nav>
 
-            <div class="header-text">
-                <p>AI/ML Engineer</p>
-                <p>Full Stack Developer</p>
-                <h1>Hi, I'm <span>Himanshu Lama</span></h1>
-            </div>
-        </div>
-    </div>
-<!-------------------about------------->
-    <div id="about">
-        <div class="container">
-            <div class="row">
-                <div class="about-col1">
-                    <img src="./photos/IMG_3021.JPG" alt="image about">
-                </div>
-                <div class="about-col2">
-                    <h1 class="sub-title">About Me</h1>
-                    <p>faldjshflaksjdhflkajsdhflaksdhflkajsdhfasdf
-                        adfklajhdlfkjahsdf;ashdlfaksjdhflasdhf
-                        aslkfjhasdlkfjhalsdkfjhalsdfj
-                        dflahjksdlfkjhad;fkjhasld;fkjhasd;olifhasl;difhasd
-                        dfluahsd;fpiohasdl;ifhal;osdifha;
-                        lkdjhfalskdjhflaskdjhfalskjdhf
-                    </p>
+<div id="stage">
 
-                    <div class="tab-titles">
-                        <p class="tab-links active-link" onclick="opentab('skills', this)">Skills</p>
-                        <p class="tab-links" onclick="opentab('experience', this)">Experience</p>
-                        <p class="tab-links" onclick="opentab('education', this)">Education</p>
-                        <p class="tab-links" onclick="opentab('programming', this)">Programming Languages</p>
-                    </div>
-                    <div class="tab-contents active-tab" id="skills">
-                        <ul>
-                            <li><span>Full Stack</span> <br>▸ Building end-to-end web applications from user interfaces to backend services.</li>
-                            <li><span>Machine Learning</span> <br>▸ Training models to extract insights and make predictions from data.</li>
-                            <li><span>AI Agent Development</span> <br>▸ Designing intelligent agents that reason, plan, and act autonomously.</li>
-                            <li><span>Automation & Workflow Orchestration</span> <br>▸ Creating scalable workflows that connect APIs, data, and AI systems.</li>
-                        </ul>
-                    </div>
+  <!-- system status bar (status only — navigation lives on the avatar) -->
+  <div class="sysbar">
+    <div class="sysbar-l"><span class="hud-dot"></span> HIMANSHU<b>.AI</b></div>
+    <div class="sysbar-c" id="sysStatus"><span class="live">●</span> PROFILE ONLINE — select a module</div>
+    <div class="sysbar-r">v2.6 · KTM → USA</div>
+  </div>
 
-                    <div class="tab-contents" id="experience">
-                        <ul>
-                            <li><span>2024 April</span> <br>▸ Smart Solar Corporation</li>
-                            <li><span>2024 May</span> <br>▸ IGC Business Holdings</li>
-                        </ul>
-                    </div>
+  <!-- ──────── HERO ──────── -->
+  <section class="scene active" id="hero" data-screen-label="Hero / Character Select">
+    <div class="grid-bg"></div>
+    <div class="ghost">LAMA<span class="deva">हिमांशु</span></div>
 
-                    <div class="tab-contents" id="education">
-                        <ul>
-                            <li><span>2016-2021</span> <br>▸ Premier International School</li>
-                            <li><span>2021-2023</span> <br>▸ Kathmandu World School</li>
-                            <li><span>2024</span> <br>▸ Augustana College</li>
-                        </ul>
-                    </div>
-
-                    <div class="tab-contents" id="programming">
-                        <ul>
-                            <li><span>Python</span> <br>▸ Pandas, NumPy, Matplotlib, Seaborn</li>
-                            <li><span>Java</span> <br>▸ Data Structures & Algorithms</li>
-                            <li><span>ML / AI</span> <br>▸ Scikit-learn, PyTorch, Hugging Face, LangChain, LangGraph</li>
-                            <li><span>Web Development</span> <br>▸ HTML, CSS, JavaScript, React, Node.js, Express.js, SQL</li>
-                            <li><span>Tools & Platforms</span> <br>▸ Git/GitHub, Docker, REST APIs, n8n</li>
-                        </ul>
-                    </div>
-
-
-                </div>
-            </div>
-        </div>
+    <div class="hero-intro">
+      <div class="sys-tag">HIMANSHU.AI · PROFILE</div>
+      <h1 class="hero-name-l">HIMANSHU LAMA</h1>
+      <div class="role-lbl">Computer Science &amp; Data Science Student</div>
+      <p class="hero-pitch">I build <em>AI-powered</em> software.</p>
+      <div class="role-sub">Machine Learning • AI Systems • Full-Stack Development</div>
+      <div class="select-cue">Select a module to explore</div>
     </div>
 
-
-    <!-------------------------------------------Services--------------------------------------------------->
-
-    <div id="projects">
-        <div class="container">
-            <h1 class="sub-title">My Projects</h1>
-            <div class="projects-list">
-                <div>
-                    <i class="fa-solid fa-robot"></i>
-                    <h2>AI Agent</h2>
-                    <p>dlkjfhalkdjfhalskdjfha dflakdj falkdh faklsjdhf aow[uhe flaiuhdlaukhfpwuiohelakjsdhfp;auwhelfaudhflkuaheflkuahe elka</p>
-                    <a href="#">GitHub Repo</a>
-                </div>
-                <div>
-                    <i class="fa-solid fa-code"></i>
-                    <h2>Housing Price Predictor</h2>
-                    <p>dlkjfhalkdjfhalskdjfha dflakdj falkdh faklsjdhf aow[uhe flaiuhdlaukhfpwuiohelakjsdhfp;auwhelfaudhflkuaheflkuahe elka</p>
-                    <a href="#">Github Repo</a>
-                </div>
-                <div>
-                    <i class="fa-solid fa-laptop-code"></i>
-                    <h2>Website (In progress)</h2>
-                    <p>dlkjfhalkdjfhalskdjfha dflakdj falkdh faklsjdhf aow[uhe flaiuhdlaukhfpwuioheldklfjha lkajh fldkjhf alkj lkajhf lajdskdj lkjhldkah akjsdhfp;auwhelfaudhflkuaheflkuahe elka</p>
-                    <a href="#">Github Repo</a>
-                </div>
-            </div>
-        </div>
+    <!-- centered figure -->
+    <div class="figure" id="figure">
+      <div class="silhouette">
+        <span class="ring-listen"></span>
+        <div class="aura"></div>
+        <div class="scan" id="scan"></div>
+        <img class="me" src="assets/himanshu.png" alt="Himanshu Lama" />
+      </div>
     </div>
 
-    <!-------------------------------------------Portfolio--------------------------------------------------->
+    <!-- projection beam layer (avatar → hovered module) -->
+    <svg class="beam-layer" id="beamLayer" aria-hidden="true"></svg>
 
-    <div id="portfolio">
-        <div class="container">
-            <h1 class="sub-title">My Works</h1>
-            <div class="work-list">
-                <div class="work">
-                    <img src="./photos/aiImage.jpeg" alt="">
-                    <div class="layer">
-                        <h3>AI Based App</h3>
-                        <p>kjdhfgaksjdgfasjkdjfalksjddsjfhasd asdfhasldkjfhaslkdjhfalsd  aklsd hflaksjdhlkajs </p>
-                        <a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                    </div>
-                </div>
-                <div class="work">
-                    <img src="./photos/website.png" alt="">
-                    <div class="layer">
-                        <h3>Website</h3>
-                        <p>kjdhfgaksjdgfasjkdjfalksjddsjfhasd asdfhasldkjfhaslkdjhfalsd  aklsd hflaksjdhlkajs </p>
-                        <a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                    </div>
-                </div>
-                <div class="work">
-                    <img src="./photos/n8nImage.png" alt="">
-                    <div class="layer">
-                        <h3>AI Automation System</h3>
-                        <p>kjdhfgaksjdgfasjkdjfalksjddsjfhasd asdfhasldkjfhaslkdjhfalsd  aklsd hflaksjdhlkajs </p>
-                        <a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                    </div>
-                </div>
-            </div>
-            <a href="#" class="btn">See More</a>
-        </div>
+    <!-- the avatar projects its modules — a holographic dock the AI offers you -->
+    <nav class="holo-dock" id="holoDock" aria-label="Modules">
+      <div class="holo-head">Projected modules <span class="ln"></span></div>
+
+      <button class="holo-card" data-go="about" style="--cc:var(--c4)">
+        <span class="hc-glyph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c0-3.8 3.1-6 7-6s7 2.2 7 6"/></svg></span>
+        <span class="hc-body"><span class="hc-code">MOD_01</span><span class="hc-name">ABOUT</span><span class="hc-desc">Who I am — origin &amp; focus.</span></span>
+        <span class="hc-go">→</span>
+      </button>
+
+      <button class="holo-card" data-go="projects" style="--cc:var(--c3)">
+        <span class="hc-glyph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7.5" height="7.5" rx="1"/><rect x="13.5" y="3" width="7.5" height="7.5" rx="1"/><rect x="3" y="13.5" width="7.5" height="7.5" rx="1"/><rect x="13.5" y="13.5" width="7.5" height="7.5" rx="1"/></svg></span>
+        <span class="hc-body"><span class="hc-code">MOD_02</span><span class="hc-name">WORKS</span><span class="hc-desc">Everything I've built.</span></span>
+        <span class="hc-go">→</span>
+      </button>
+
+      <button class="holo-card" data-go="skills" style="--cc:var(--c2)">
+        <span class="hc-glyph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l9 5-9 5-9-5 9-5z"/><path d="M3 13l9 5 9-5"/><path d="M3 17l9 5 9-5"/></svg></span>
+        <span class="hc-body"><span class="hc-code">MOD_03</span><span class="hc-name">SKILLS</span><span class="hc-desc">My technical stack.</span></span>
+        <span class="hc-go">→</span>
+      </button>
+
+      <button class="holo-card" data-go="journey" style="--cc:var(--c5)">
+        <span class="hc-glyph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="2"/><circle cx="18" cy="18" r="2"/><path d="M8 6h6a3 3 0 0 1 0 6H9a3 3 0 0 0 0 6h1"/></svg></span>
+        <span class="hc-body"><span class="hc-code">MOD_04</span><span class="hc-name">JOURNEY</span><span class="hc-desc">Nepal → USA → AI.</span></span>
+        <span class="hc-go">→</span>
+      </button>
+
+      <button class="holo-card" data-go="contact" style="--cc:var(--accent)">
+        <span class="hc-glyph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="2"/><path d="M8.5 8.5a5 5 0 0 0 0 7M15.5 8.5a5 5 0 0 1 0 7M5.7 5.7a9 9 0 0 0 0 12.6M18.3 5.7a9 9 0 0 1 0 12.6"/></svg></span>
+        <span class="hc-body"><span class="hc-code">MOD_05</span><span class="hc-name">CONNECT</span><span class="hc-desc">Ways to reach me.</span></span>
+        <span class="hc-go">→</span>
+      </button>
+    </nav>
+
+    <!-- social rail + corner -->
+    <div class="rail" style="bottom:42px">
+      <a class="s" href="https://linkedin.com/in/himanshu-lama-6a801932a" target="_blank" rel="noopener" aria-label="LinkedIn">in</a>
+      <a class="s" href="https://github.com/Z0Z0-12" target="_blank" rel="noopener" aria-label="GitHub">gh</a>
     </div>
+    <div class="corner-r">EN · NP →</div>
+  </section>
 
-    <!-------------------------------------------Contact--------------------------------------------------->
-
-    <div id="contact">
-        <div class="container">
-            <div class="row">
-                <div class="contact-left">
-                    <h1 class="sub-title">Contact Me</h1>
-                    <p><i class="fa-solid fa-envelope"></i>example@gmail.com</p>
-                    <p><i class="fa-solid fa-phone"></i>+1 1234567890</p>
-                    <div class="social-icons">
-                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                        <a href="#"><i class="fa-brands fa-linkedin"></i></a>
-                        <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
-                    </div>
-                    <a href="./photos/resume1.docx" download class="btn btn2">Download CV</a>
-                </div>
-                <div class="contact-right">
-                    <form>
-                        <input type="text" name="name" placeholder="Your Name" required>
-                        <input type="email" name="email" placeholder="Your Email" required>
-                        <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
-                        <button type="submit" class="btn btn2">Submit</button>
-                    </form>
-                </div>
-            </div>
+  <!-- ──────── ABOUT ──────── -->
+  <section class="scene section" id="about" data-screen-label="About">
+    <button class="back" data-go="hero">← back to select</button>
+    <div class="sec-head anim"><span class="no">MOD_01</span><h2>ABOUT</h2><span class="deva">मेरो बारेमा</span></div>
+    <p class="sec-sub anim">Computer Science &amp; Data Science student from Nepal — building AI systems and the software that wraps around them.</p>
+    <div class="sec-body">
+      <div class="about-grid">
+        <div class="card box anim" style="display:flex;flex-direction:column">
+          <p>I'm Himanshu Lama — a Computer Science &amp; Data Science student at Augustana College, originally from Nepal. I build AI-powered software: agentic RAG pipelines, multi-agent systems, and the full-stack apps that wrap around them.</p>
+          <p style="color:var(--paper-dim)">I'm drawn to the messy edge where machine learning meets real products — researching one day, shipping the next. Right now I'm exploring LLMs, multimodal models, and how to make AI genuinely useful.</p>
+          <div class="stat-row">
+            <div class="stat dash"><b>3</b><span>featured projects</span></div>
+            <div class="stat dash"><b>2</b><span>internships</span></div>
+          </div>
         </div>
-        <div class="copyright">
-            <p>Copyright © Himanshu. Made with tutorials</p>
-        </div>
+        <div class="box anim" style="display:grid;place-items:center;color:var(--paper-dim);font-size:11px;letter-spacing:.16em">PORTRAIT / CANDID PHOTO</div>
+      </div>
     </div>
+  </section>
 
-    <script src="portfolio.js"></script>
+  <!-- ──────── WORKS ──────── -->
+  <section class="scene section" id="projects" data-screen-label="Works">
+    <button class="back" data-go="hero">← back to select</button>
+    <div class="sec-head anim"><span class="no">MOD_02</span><h2>WORKS</h2><span class="deva">परियोजनाहरू</span></div>
+    <p class="sec-sub anim">Scroll to spin — each system rotates to center with its details.</p>
+    <div class="sec-body">
+      <div class="disc-stage">
+        <div class="disc-detail" id="discDetail"></div>
+        <div class="disc-wrap" id="discWrap">
+          <div class="disc-ring"></div>
+          <div class="disc-ticks"></div>
+          <div class="disc-sweep"></div>
+          <div class="disc-core"><span class="dc-in"><b id="discCount">03</b>SYSTEMS</span></div>
+        </div>
+        <div class="disc-hint"><span class="wheel"></span> scroll to spin</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ──────── SKILLS ──────── -->
+  <section class="scene section" id="skills" data-screen-label="Skills">
+    <button class="back" data-go="hero">← back to select</button>
+    <div class="sec-head anim"><span class="no">MOD_03</span><h2>SKILLS</h2><span class="deva">सीपहरू</span></div>
+    <p class="sec-sub anim">A neural map — the core routes through four domains into the skills that power them.</p>
+    <div class="sec-body">
+      <div class="nn-stage" id="nnStage">
+        <div class="nn-info">
+          <div class="nn-readout" id="nnReadout"></div>
+          <div class="nn-legend"><span class="lg"><i></i><i class="big"></i> node size = proficiency</span></div>
+        </div>
+        <div class="nn-graph" id="nnGraph">
+          <svg class="nn-lines" id="nnLines" preserveAspectRatio="none"></svg>
+          <div class="nn-cols"><span style="left:8%">Core</span><span style="left:42%">Domains</span><span style="left:76%">Skills</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ──────── JOURNEY ──────── -->
+  <section class="scene section" id="journey" data-screen-label="Journey">
+    <button class="back" data-go="hero">← close module</button>
+    <div class="sec-head anim"><span class="no">MOD_04</span><h2>JOURNEY</h2><span class="deva">मेरो यात्रा</span></div>
+    <p class="sec-sub anim">Nepal → USA → Computer Science → AI research → ML engineer.</p>
+    <div class="sec-body"><div class="timeline" id="timeline"></div></div>
+  </section>
+
+  <!-- ──────── CONTACT ──────── -->
+  <section class="scene section" id="contact" data-screen-label="Contact">
+    <button class="back" data-go="hero">← back to select</button>
+    <div class="sec-body">
+      <div class="contact-wrap">
+        <div class="anim lbl">MOD_05 · CONNECT</div>
+        <div class="big anim">SAY <em>NAMASTE.</em></div>
+        <div class="anim lbl" style="color:var(--paper)">himanshulama24@augustana.edu</div>
+        <div class="links anim">
+          <a class="lk dash" href="https://linkedin.com/in/himanshu-lama-6a801932a" target="_blank" rel="noopener">LinkedIn →</a>
+          <a class="lk dash" href="https://github.com/Z0Z0-12" target="_blank" rel="noopener">GitHub →</a>
+          <a class="lk dash" href="mailto:himanshulama24@augustana.edu">Email →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- AI presenter (shown on module pages) -->
+<div id="presenter" aria-hidden="true">
+  <div class="pr-av" id="prAv">
+    <div class="pr-glow"></div>
+    <div class="pr-frame"></div>
+    <span class="pr-tag">HIMANSHU.AI</span>
+    <span class="pr-cn tr"></span><span class="pr-cn bl"></span>
+    <img class="pr-img" src="assets/himanshu.png" alt="Himanshu Lama" />
+    <span class="pr-scan"></span>
+  </div>
+  <div class="pr-box" id="prVoice">
+    <div class="pr-head"><span class="pr-eq"><i></i><i></i><i></i><i></i></span><span class="pr-who">HIMANSHU.AI</span></div>
+    <div class="pr-say"><span id="prSay"></span><span class="pr-caret"></span></div>
+  </div>
+</div>
+
+<!-- transition fx layer -->
+<div id="fx"></div>
+
+<!-- boot overlay -->
+<div id="boot">
+  <div class="boot-inner">
+    <div class="boot-logo">HIMANSHU<b>.AI</b></div>
+    <div class="boot-line" id="bootLine">Initializing HIMANSHU.AI…</div>
+    <div class="boot-bar"><div class="boot-fill" id="bootFill"></div></div>
+  </div>
+</div>
+
+<!-- AI voice line (predefined speech) -->
+<div class="ai-voice" id="aiVoice">
+  <span class="eq"><i></i><i></i><i></i><i></i><i></i></span>
+  <span class="who">HIMANSHU.AI</span>
+  <span class="say" id="aiSay"></span><span class="caret"></span>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+<script src="js/main.js"></script>
 </body>
 </html>
