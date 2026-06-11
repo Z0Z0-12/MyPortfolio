@@ -194,19 +194,46 @@
   if(nnStage){ nnLayout(); nnApply(null); window.addEventListener('resize',nnLayout); }
 
   // ── JOURNEY — real milestones ──
+  // ── JOURNEY — vertical focus timeline (scroll to move through milestones) ──
   var journey=[
-    ['Nepal','Where it began','Grew up in Nepal — curiosity, computers, and a lot of questions.'],
-    ['2024','Augustana College','Began my BS in Computer Science &amp; Data Science in Rock Island, IL.'],
-    ['2024','First internships','Early roles at IGC Business Holdings and Smart Solar Corporation.'],
-    ['2024','AI research','Joined the CS Department researching how LLMs interpret video.'],
-    ['2025','Building systems','Shipped EarthTwin and multi-agent AI systems.'],
-    ['Next','What\'s ahead','Toward becoming an ML / AI engineer.']
+    ['Nepal','Where it began','Grew up in Nepal — equal parts curiosity, computers, and questions nobody around me could answer yet.'],
+    ['2024','USA · Augustana College','Crossed an ocean for a Computer Science & Data Science degree. New country, same obsession — building things that think.'],
+    ['2024','First internships','Early roles at IGC Business Holdings and Smart Solar — my first look at how real teams plan and ship.'],
+    ['2024','AI research','Joined the CS Department researching how large language and vision models read and reason over video.'],
+    ['2025','Building systems','Shipped EarthTwin and a multi-agent system — turning research instincts into things people can actually use.'],
+    ['Next','What\'s ahead','Heading toward work as an ML / AI engineer — and whatever hard problem comes next.']
   ];
-  var tlWrap=document.getElementById('timeline');
-  if(tlWrap){ var rl=document.createElement('div'); rl.className='rail-line'; tlWrap.appendChild(rl);
-    journey.forEach(function(j){ var el=document.createElement('div'); el.className='tl box anim';
-      el.innerHTML='<span class="node"></span><div class="year">'+j[0]+'</div><div class="tl-t">'+j[1]+'</div><div class="tl-d">'+j[2]+'</div>';
-      tlWrap.appendChild(el); }); }
+  var jrTrack=document.getElementById('jrTrack');
+  var jrItems=[], jrActive=0, JR_GAP=170;
+  if(jrTrack){
+    var jrTot=(journey.length<10?'0':'')+journey.length;
+    journey.forEach(function(j,i){
+      var no=(i+1<10?'0':'')+(i+1);
+      var it=document.createElement('div'); it.className='jr-item';
+      it.innerHTML='<div class="jr-card">'+
+        '<div class="jr-head"><span class="jr-year">'+j[0]+'</span><span class="jr-title">'+j[1]+'</span><span class="jr-idx">'+no+' / '+jrTot+'</span></div>'+
+        '<div class="jr-detail">'+
+          '<div class="jr-media"><span class="jr-scan"></span><span class="jr-cn tl"></span><span class="jr-cn br"></span><span class="jr-mlbl">MEMORY · '+String(j[0]).toUpperCase()+'</span></div>'+
+          '<p class="jr-blurb">'+j[2]+'</p>'+
+        '</div></div>';
+      it.addEventListener('click',function(){ setJourney(i); });
+      jrTrack.appendChild(it); jrItems.push(it);
+    });
+  }
+  function layoutJourney(){
+    jrItems.forEach(function(it,i){
+      var d=i-jrActive, ad=Math.abs(d);
+      it.style.top=(d*JR_GAP)+'px';
+      it.style.opacity = ad>2 ? 0 : (i===jrActive ? 1 : (ad===1 ? 0.5 : 0.22));
+      it.style.pointerEvents = ad>2 ? 'none' : 'auto';
+      it.classList.toggle('active', i===jrActive);
+    });
+  }
+  function setJourney(i){
+    jrActive=Math.max(0,Math.min(journey.length-1,i));
+    layoutJourney();
+  }
+  if(jrTrack){ layoutJourney(); }
 
   /* ---- nav state ---- */
   function setActiveNav(id){
@@ -231,6 +258,7 @@
     if(busy || id===current) return;
     busy = true;
     setActiveNav(id==='hero'?'hero':id);
+    if(id==='journey'){ jrActive=0; layoutJourney(); }
     // watchdog: guarantee we never get stuck mid-transition (dropped RAF frame, etc.)
     clearTimeout(window.__txWatch);
     window.__txWatch = setTimeout(function(){
@@ -343,13 +371,20 @@
   });
 
   /* ---- wheel: spin disc on Works; else hero<->section ---- */
-  var wlock=false, discCooldown=false;
+  var wlock=false, discCooldown=false, jrCooldown=false;
   window.addEventListener('wheel',function(e){
     if(current==='projects'){
       if(busy) return;
       if(discCooldown) return;
       discCooldown=true; setTimeout(function(){discCooldown=false;},240);
       setDisc(discActive + (e.deltaY>0?1:-1));
+      return;
+    }
+    if(current==='journey'){
+      if(busy) return;
+      if(jrCooldown) return;
+      jrCooldown=true; setTimeout(function(){jrCooldown=false;},240);
+      setJourney(jrActive + (e.deltaY>0?1:-1));
       return;
     }
     if(busy||wlock) return;
